@@ -1,0 +1,20 @@
+<h1 class="mt-4">Admin</h1>
+<p class="lead mb-3">Welcome
+    <%= adminUser %>
+</p>
+
+<p>Current Active Sessions:</p>
+<% Object.keys(sessions).forEach(sessionID =>{ %>
+    <% let userID = sessions[sessionID][0] %>
+        <% let username = sessions[sessionID][1] %>
+            <p> Username:
+                <%= username %>
+            </p>
+            <p> SessionID:
+                <%= sessionID %>
+            </p>
+            <p> UserID:
+                <%= userID %>
+            </p>
+            <a href="/admin/destroy/<%= sessionID%>">Revoke Session</a>
+            <%})%>
